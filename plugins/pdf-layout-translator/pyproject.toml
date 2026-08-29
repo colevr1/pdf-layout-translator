@@ -1,0 +1,12 @@
+[project]
+name = "pdf-layout-translator-mcp"
+version = "0.1.0"
+description = "MCP tools for translating text-based PDFs while preserving layout"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp>=1.16,<2",
+  "pymupdf>=1.26.5,<2",
+]
+
+[tool.uv]
+package = false

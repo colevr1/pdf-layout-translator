@@ -1,0 +1,20 @@
+{
+  "name": "pdf-layout-tools",
+  "interface": {
+    "displayName": "PDF Layout Tools"
+  },
+  "plugins": [
+    {
+      "name": "pdf-layout-translator",
+      "source": {
+        "source": "local",
+        "path": "./plugins/pdf-layout-translator"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

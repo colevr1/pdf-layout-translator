@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: "3.11"
+          enable-cache: true
+      - name: Check lockfile
+        run: uv lock --project plugins/pdf-layout-translator --check
+      - name: Lint
+        run: uvx ruff check plugins/pdf-layout-translator
+      - name: Test MCP and PDF pipeline
+        run: uv run --project plugins/pdf-layout-translator --locked python plugins/pdf-layout-translator/test_server.py
