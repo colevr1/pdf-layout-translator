@@ -1,6 +1,6 @@
 {
   "name": "pdf-layout-translator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Translate text-based PDFs with an LLM while preserving page layout, images, vector graphics, and inline emphasis.",
   "author": {
     "name": "Antonio Colella",
@@ -9,7 +9,7 @@
   "homepage": "https://github.com/colevr1/pdf-layout-translator",
   "repository": "https://github.com/colevr1/pdf-layout-translator",
   "license": "MIT",
-  "keywords": ["pdf", "translation", "layout", "mcp", "codex"],
+  "keywords": ["pdf", "translation", "layout", "mcp", "codex", "claude-code"],
   "skills": "./skills/",
   "interface": {
     "displayName": "PDF Layout Translator",
@@ -24,5 +24,12 @@
       "Translate this PDF into English and preserve its layout."
     ]
   },
-  "mcpServers": "./.mcp.json"
+  "mcpServers": {
+    "pdf-layout-translator": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "--project", ".", "--locked", "server.py"],
+      "cwd": "./"
+    }
+  }
 }

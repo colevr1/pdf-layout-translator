@@ -18,6 +18,12 @@ jobs:
           enable-cache: true
       - name: Check lockfile
         run: uv lock --project plugins/pdf-layout-translator --check
+      - name: Validate plugin JSON
+        run: |
+          python -m json.tool .claude-plugin/marketplace.json >/dev/null
+          python -m json.tool plugins/pdf-layout-translator/.claude-plugin/plugin.json >/dev/null
+          python -m json.tool plugins/pdf-layout-translator/.codex-plugin/plugin.json >/dev/null
+          python -m json.tool plugins/pdf-layout-translator/.mcp.json >/dev/null
       - name: Lint
         run: uvx ruff check plugins/pdf-layout-translator
       - name: Test MCP and PDF pipeline

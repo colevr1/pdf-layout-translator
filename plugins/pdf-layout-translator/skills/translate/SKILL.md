@@ -17,6 +17,6 @@ Use the `pdf-layout-translator` MCP tools and the active model as the translator
 4. Call `submit_translations` with objects shaped as `{id, text}`.
    - If submission reports missing or invalid style markers, correct only those segments and retry.
 5. Repeat steps 3–4 until `remaining` is zero, then call `render_translated_pdf`.
-6. Open the resulting PDF in Codex when possible and return a clickable absolute file link. Mention fitting warnings briefly.
+6. Open the resulting PDF in the host client when possible and return a clickable absolute file link. Mention fitting warnings briefly.
 
 If preparation reports no selectable text, explain that OCR support is not included yet; do not fabricate a translated output.
