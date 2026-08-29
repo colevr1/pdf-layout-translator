@@ -9,6 +9,7 @@ The repository contains native plugins for Codex and Claude Code, a portable [Ag
 - Preserves page size, images, and vector artwork.
 - Replaces text inside the source text regions instead of rebuilding the document from scratch.
 - Preserves inline bold and italic phrases across grammatical reordering.
+- Recovers synthetic PDF bold and italic styling encoded through stroke and shear operations.
 - Validates formatting markers before rendering.
 - Detects left-aligned and centered text using PDF geometry and neighboring text flow.
 - Fits longer translations into the available region and reports aggressive scaling or fitting failures.
@@ -268,7 +269,7 @@ The test suite checks segment extraction, inline formatting markers, alignment i
 
 When publishing an update:
 
-1. Change `version` in both plugin manifests under `.codex-plugin/` and `.claude-plugin/`.
+1. Change `version` in both plugin manifests and `plugins/pdf-layout-translator/pyproject.toml`.
 2. Run the tests and both plugin validators.
 3. Commit, tag the release, and push.
 4. Users refresh their marketplace and update or reinstall the plugin in their client.
