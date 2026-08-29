@@ -1,7 +1,6 @@
 {
   "name": "pdf-layout-translator",
-  "displayName": "PDF Layout Translator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Translate text-based PDFs with an LLM while preserving page layout, images, vector graphics, and inline emphasis.",
   "author": {
     "name": "Antonio Colella",
